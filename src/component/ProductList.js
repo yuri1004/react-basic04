@@ -2,7 +2,7 @@ import './ProductList.css';
 
 
 // 자식 컨퍼넌트(source)
-function ListItem({item}){
+function ListItem({item,onDelete}){
     // console.log(item);
     // console.log(allDate);
     function changeDate(num){
@@ -20,6 +20,10 @@ function ListItem({item}){
                     <dd>{item.price}</dd>
                     <dd>{item.kind}</dd>
                     <dd>{changeDate(item.date)}</dd>
+                    <dd>
+                        <button type='button'
+                                onClick={()=>onDelete(item.id)}>delete</button>
+                    </dd>
                 </dl>
             </figcaption>
          </figure>
@@ -28,12 +32,12 @@ function ListItem({item}){
 
 
 // 부모 컨퍼넌트
-export default function ProductList({items}){
+export default function ProductList({items,onDelete}){
     // console.log(items);
     return(
         <ul>
             {items.map(
-                (item)=>(<li key={item.id}><ListItem item={item}/></li>)
+                (item)=>(<li key={item.id}><ListItem item={item}  onDelete={onDelete}/></li>)
                 )
             }
         </ul>

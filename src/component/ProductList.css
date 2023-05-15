@@ -12,3 +12,13 @@ figure>img{
 figure>figcaption{
     width: 580px;
 }
+figure dd:last-child{
+    text-align: right;
+}
+figure dd>button{
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    margin-right: 20px;
+}
